@@ -34,9 +34,8 @@ window.onload = function() {
 	p.select("path").animate({stroke: "#f00"}, 1000);
 
 
-	var svgNode = Snap.select('#svg-node'),
-    svgElement = svgNode.select('#svg-element');
-
+	var svgNode = Snap('#svg-node');
+	var svgElement = svgNode.select('#svg-element');
 	svgElement.attr({
 	    fill: "red",
 	    stroke: "green",
@@ -44,4 +43,20 @@ window.onload = function() {
 	    x: 250,
 	    y: 100
 	});
+
+	s = Snap("#mysvg");
+	var circleFromDom1 = Snap("#circle1");
+	console.log('circleFromDom1', circleFromDom1);
+	circleFromDom1.animate({ fill: 'blue' }, 2000);
+
+	var circleFromDom2 = Snap.select("#circle2");
+	console.log('circleFromDom2', circleFromDom2);
+	circleFromDom2.animate({ fill: 'red' }, 2000);
+
+	var circle3 = s.circle(100,300,20)
+	         .animate({ fill: 'yellow' }, 2000);
+
+	var circle4 = s.circle(100,400,20).attr({ id: 'circle4' });
+
+	s.select("#circle4").animate({ fill: 'green' }, 2000);
 }
